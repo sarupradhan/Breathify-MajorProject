@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0c1139e1; /* Dark blue */
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 17px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            font-size: 15px;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: rgba(30, 31, 57, 0.212);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        p.footer-text {
+            margin: 0;
+            font-size: 10px;
+            color: white;
+        }
+
+        /* Contact Us Page Styles */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 60px; /* Adjusted to avoid overlap with header and footer */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .contact-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .contact-card p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .contact-card a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/images/Breathify.png" alt="Breathify Logo">
+            </a>
+            <h1>LungCare with Breathify</h1>
+        </div>
+        <nav>
+          <ul class="list-none flex justify-start">
+            <li><a href="{{ url_for('dashboard') }}" class="text-white">Dashboard</a></li>
+            <li><a href="{{ url_for('about') }}" class="text-white ml-4">About</a></li>
+            <li><a href="{{ url_for('contact') }}" class="text-white ml-4">Contact</a></li>
+            <li><a href="{{ url_for('logout') }}" class="text-white ml-4">Logout</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-card-container">
+            <div class="contact-card">
+                <img src="static\images\nirajan.png" alt="Person 2">
+                <h3>Nirajan Shrestha</h3>    
+                <p>Email: <a href="mailto:nirajan.077bct050@acem.edu.np">nirajan.077bct050@acem.edu.np</a></p>
+                <p>Phone: +977 9763688270</p>
+            </div>
+            <div class="contact-card">
+              <img src="static\images\saru.png" alt="Person 1">
+              <h3>Saru Pradhan </h3>
+              <p>Email: <a href="mailto:psaru8124@gmail.com">psaru8124@gmail.com</a></p>
+              <p>Phone: +977 9861611248 </p>
+          </div>
+            <div class="contact-card">
+                <img src="static\images\pujan.png" alt="Person 3">
+                <h3>Pujan Shrestha</h3>
+                <p>Email: <a href="mailto:pujan.077bct061@acem.edu.np">pujan.077bct061@acem.edu.np</a></p>
+                <p>Phone: +977 9861291112 </p>
+            </div> 
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">&copy; 2025 Breathify</p>
+    </footer>
+</body>
+</html>

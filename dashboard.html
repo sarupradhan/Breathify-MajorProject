@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        header {
+            background-color: #0c1139e1;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        header h1 {
+            font-size: 17px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+        nav li {
+            font-size: 15px;
+            margin-right: 20px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: rgba(30, 31, 57, 0.212);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        p.footer-text {
+            margin: 0;
+            font-size: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <!-- Header (Navbar) -->
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('dashboard') }}">
+                <img src="/static/images/Breathify.png" alt="Breathify Logo">
+            </a>
+            <h1>LungCare with Breathify</h1>
+        </div>
+        <nav>
+            <ul class="list-none flex justify-start">
+                <li><a href="{{ url_for('dashboard') }}" class="text-white">Dashboard</a></li>
+                <li><a href="{{ url_for('about') }}" class="text-white ml-4">About</a></li>
+                <li><a href="{{ url_for('contact') }}" class="text-white ml-4">Contact</a></li>
+                <li><a href="{{ url_for('logout') }}" class="text-white ml-4">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="mt-10">
+        <div class="container mx-auto">
+            <!-- Welcome Message -->
+            <div class="flex justify-center items-center h-32">
+                <h1 class="text-3xl font-bold">Welcome, {{ user['username'] }}!</h1>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <!-- User Details -->
+                <div class="bg-white p-6 rounded shadow">
+                    <h3 class="text-xl font-semibold">Your Details</h3>
+                    <p><strong>Username:</strong> {{ user['username'] }}</p>
+                    <p><strong>Age:</strong> {{ user['age'] }}</p>
+                    <p><strong>Gender:</strong> {{ user['gender'] }}</p>
+                    <p><strong>User ID:</strong> {{ user['_id'] }}</p>
+                </div>
+
+                <!-- Upload Section for Prediction -->
+                <div class="bg-white p-6 rounded shadow">
+                    <h3 class="text-xl font-semibold">Upload an Image</h3>
+                    <form action="{{ url_for('dashboard') }}" method="POST" enctype="multipart/form-data" class="mt-4">
+                        <input type="file" name="image" accept="image/*" class="block mb-4" required>
+                        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Predict
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="my-6">
+             <!-- User Images and Predictions -->
+             <div class="bg-white p-6 rounded shadow mt-6">
+              <h3 class="text-xl font-semibold">Uploaded Images and Predictions</h3>
+              {% if user_images %}
+                  <div class="space-y-4">
+                      {% for image in user_images %}
+                          <div class="bg-gray-200 p-4 rounded">
+                              <img src="{{ url_for('static', filename=image['image_path']) }}" alt="Uploaded Image" class="w-full h-auto">
+                              <p><strong>Prediction:</strong> {{ image['prediction'] }}</p>
+                          </div>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  <p>No images uploaded yet.</p>
+              {% endif %}
+          </div>  
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">&copy; 2025 Breathify</p>
+    </footer>
+</body>
+</html>

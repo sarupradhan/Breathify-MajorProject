@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Breathify</title>
+  <style>
+    body {
+      background-image: url('/static/images/h.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      color: rgb(0, 0, 0);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      font-size: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    header {
+  background-color: #0c1139e1; /* Dark blue */
+  color: #fff;
+  padding: 10px; /* Adjusted padding to reduce space */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px; /* Reduced space between logo and heading */
+}
+header img {
+  height: 30px; /* Increased logo size */
+  margin-right: 10px; /* Reduced spacing between logo and heading */
+}
+header h1 {
+  font-size: 17px; /* Increased font size for better visibility */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+  margin: 0;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Align nav items slightly left */
+}
+nav li {
+    font-size: 15px;
+    margin-right: 20px; /* Adjusted margin between nav items */
+}
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+    .caption {
+      font-size: 18px;
+      margin-top: 0px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      padding: 15px 30px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: rgba(9, 75, 181, 0.9);
+    }
+
+    footer {
+      background-color: rgba(30, 31, 57, 0.212);
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    p.footer-text {
+      margin: 0;
+      font-size: 10px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <!-- Wrap the logo with a link to welcome.html -->
+    <a href="{{ url_for('home') }}">
+        <img src="/static/images/Breathify.png" alt="Breathify Logo"> <!-- Adjust logo size -->
+    </a>
+    <h1>LungCare with Breathify</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Welcome to Breathify</h1>
+    <p class="caption">We care for your lungs, one scan at a time.<br>Breathe better, live healthier.</p>
+    <button onclick="window.location.href='{{ url_for('register') }}'">Start Now</button>
+
+
+
+  </div>
+
+  <footer>
+    <p class="footer-text">&copy; 2025 Breathify</p>
+  </footer>
+</body>
+</html>

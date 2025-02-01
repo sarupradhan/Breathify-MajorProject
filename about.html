@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url('/static/images/about-background.avif'); /* Replace with appropriate image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0c1139e1; /* Dark blue */
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            font-size: 17px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        nav li {
+            font-size: 15px;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        nav a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: rgba(30, 31, 57, 0.212);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        p.footer-text {
+            margin: 0;
+            font-size: 10px;
+            color: white;
+        }
+
+        .content {
+            padding: 80px 20px 60px; /* Add padding to accommodate the fixed header and footer */
+            text-align: center;
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/images/Breathify.png" alt="Breathify Logo">
+            </a>
+            <h1>LungCare with Breathify</h1>
+        </div>
+        <nav>
+          <ul class="list-none flex justify-start">
+            <li><a href="{{ url_for('dashboard') }}" class="text-white">Dashboard</a></li>
+            <li><a href="{{ url_for('about') }}" class="text-white ml-4">About</a></li>
+            <li><a href="{{ url_for('contact') }}" class="text-white ml-4">Contact</a></li>
+            <li><a href="{{ url_for('logout') }}" class="text-white ml-4">Logout</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="about-section">
+            <h2>About Us</h2>
+            <p>Welcome to Breathify! Our mission is to provide a state-of-the-art lung care platform that leverages cutting-edge technology to enhance medical diagnosis and patient outcomes. With a commitment to innovation and reliability, we aim to make lung health monitoring accessible and efficient for everyone.</p>
+            <p>At Breathify, we believe in the power of technology to transform lives. Join us on this journey to a healthier future.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">&copy; 2025 Breathify</p>
+    </footer>
+</body>
+</html>

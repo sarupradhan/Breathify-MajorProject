@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url('/static/images/d.avif');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0c1139e1; /* Dark blue */
+            color: #fff;
+            padding: 10px; /* Adjusted padding to reduce space */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 15px; /* Reduced space between logo and heading */
+        }
+
+        header img {
+            height: 30px; /* Increased logo size */
+            margin-right: 10px; /* Reduced spacing between logo and heading */
+        }
+
+        header h1 {
+            font-size: 17px; /* Increased font size for better visibility */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* Align nav items slightly left */
+        }
+
+        nav li {
+            font-size: 15px;
+            margin-right: 20px; /* Adjusted margin between nav items */
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: rgba(30, 31, 57, 0.212);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        p.footer-text {
+            margin: 0;
+            font-size: 10px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .login-box button:hover {
+            background-color: rgba(9, 75, 181, 0.9);
+        }
+
+        .login-box p {
+            font-size: 14px;
+        }
+
+        .login-box p a {
+            color: rgba(9, 75, 181, 0.9);
+            text-decoration: none;
+        }
+
+        .login-box p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="/static/images/Breathify.png" alt="Breathify Logo"> <!-- Adjust logo size -->
+            </a>
+            <h1>LungCare with Breathify</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="{{ url_for('login') }}" method="POST" id="login-form">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            {% if error_msg %}
+                <p style="color: red;">{{ error_msg }}</p>
+            {% endif %}
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">&copy; 2025 Breathify</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

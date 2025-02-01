@@ -1,0 +1,63 @@
+body {
+  background-image: url('/static/images/h.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  font-size: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 36px;
+  color: #fff;
+}
+
+.caption {
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 15px 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: rgba(9, 75, 181, 0.9);
+}
+
+footer {
+  background-color: rgba(30, 31, 69, 0.5);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+}
